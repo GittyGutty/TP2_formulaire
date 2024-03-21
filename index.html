@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion compte utilisateur</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script defer src="js/main.js"></script>
+    <script defer src="js/messagesErreur.js"></script>
+</head>
+
+<body class="body">
+    <a href="#main" class="screen-reader-only focussable">Aller au contenu</a>
+    <header class="header" role="banner">
+        <h1>Créer un compte</h1>
+    </header>
+    <main class="main" role="main">
+        <picture class="picture">
+            <source srcset="img/img_bureau_2000.jpg" media="(max-width:800px)">
+            <source srcset="img/img_bureau_500.jpg" media="(min-width:801px)">
+            <img class="picture__img" src="img/img_bureau_500.jpg" alt="Image d'un bureau'">
+        </picture>
+        <form class="form" id="connexion-form" action="index.html" method="get" role="form">
+            <h2>Saisissez vos informations de connexion</h2>
+            <fieldset class="fieldset">
+                <legend class="fieldset__legend">Informations personnelles</legend>
+                <p class="p_champ-saisie">
+                    <label for="prenom-compte">Prénom :</label>
+                    <input class="champ-saisie" type="text" id="prenom-compte" name="prenom"
+                        title="Inscrivez le prénom avec une lettre majuscule" maxlength="50" required>
+                    <span id="prenom-compte-erreur" class="valide"></span>
+                </p>
+                <p class="p_champ-saisie">
+                    <label for="nom-compte">Nom :</label>
+                    <input class="champ-saisie" type="text" id="nom-compte" name="nom"
+                        title="Inscrivez le nom avec une lettre majuscule" maxlength="50" required>
+                    <span id="nom-compte-erreur" class="valide"></span>
+                </p>
+                <p class="p_champ-saisie">
+                    <label for="email-compte">Email :</label>
+                    <input class="champ-saisie" type="email" id="email-compte" name="email"
+                        title="Respecter le format de l'adresse courriel (abcdg@xyz.com)"
+                        pattern="\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+" required>
+                    <span id="emailMsgErreur" class="valide"></span>
+                    <span id="emailMsgInvalide" class="valide"></span>
+                </p>
+            </fieldset>
+            <p class="p_champ-saisie">
+                <label for="password-compte">Mot de passe :</label>
+                <input class="champ-saisie p_mot-passe" type="password" id="password-compte" name="password"
+                    title="Veuillez inscrire votre mot de passe en respectant les contraintes"
+                    pattern="(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}" required>
+                <a href="#">Mot de passe oublié ?</a>
+                <span id="mpMsgErreur" class="valide"></span>
+                <span id="mpMsgInvalide" class="valide"></span>
+            </p>
+            <div class="cacher">
+                <p id="lettre-majuscule" class="incorrecte"> 1 lettre majuscule</p>
+                <p id="lettre-minuscule" class="incorrecte"> 1 lettre minuscule</p>
+                <p id="chiffre" class="incorrecte"> 1 chiffre</p>
+                <p id="caractere-special" class="incorrecte"> 1 caractère spécial</p>
+                <p id="nombre-caractere" class="incorrecte"> 8 caractères minimum</p>
+                <p id="caractere_max" class="incorrecte">25 caractères maximum</p>
+                <p id="force-mot-passe" class="erreur"></p>
+            </div>
+            <p class="p_champ-saisie">
+                <label for="password-confirmation">Confirmer le mot de passe :</label>
+                <input class="champ-saisie" type="password" id="password-confirmation" name="confirmation_password"
+                    title="Le mot de passe doit être identique au précédent" required>
+                <span id="mpConfirmationMsgErreur" class="valide"></span>
+                <span id="mpConfirmationMsgInvalide" class="valide"></span>
+            </p>
+            <button class="bouton-submit" id="bouton-connexion"> Se connecter</button>
+        </form>
+    </main>
+    <footer class="footer" role="contentinfo">
+        <p><small>Ice cream tous droits réservés</small></p>
+    </footer>
+</body>
+
+</html>
